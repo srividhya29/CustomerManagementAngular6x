@@ -1,0 +1,64 @@
+
+
+
+<div class="customers view">
+  <div class="container-fluid">
+    <header>
+      <h3>Customers</h3>
+    </header>
+    <div class="row">
+      <div class="col-xs-3 p-a-1">
+        First Name:
+        <br />
+        <input [(ngModel)]="firstName" type="text" placeholder="First Name">
+      </div>
+      <div class="col-xs-3 p-a-1">
+        Last Name:
+        <br />
+        <input [(ngModel)]="lastName" type="text" placeholder="Last Name">
+      </div>
+      <div class="col-xs-3 p-a-1">
+        City:
+        <br />
+        <input [(ngModel)]="city" type="text" placeholder="Customer City">
+      </div>
+      <div class="col-xs-3 p-a-1">
+        <button id="submitCustomer" class="btn btn-primary" type="button"
+                [disabled]="!firstName || !lastName || !city"
+                (click)="insertCustomer()">
+          Add Customer
+        </button>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+
+  <div class="cardContainer">   
+    <div class="col-xs-3 card" *ngFor="let customer of customers"> <!--| sortwithName : 'lastName')">-->
+      <button class="btn close cardClose" (click)="deleteCustomer(customer.id)">&times;</button>
+    <div class="cardHeader">{{customer.firstName + ' ' + customer.lastName}}</div>
+    <div class="cardBody">{{customer.city}}</div>
+    <a href="/customerorders/{{customer.id}}" class="cardBody btn-link">View {{ customer.order.length }} Orders</a>
+  </div>
+    </div>
+  </div>
+
+  <!--<div class="row">
+     <div class="col-sm-3">
+       <div class="card">
+         <div class="card-block" *ngFor="let customer of customers">
+           <p class="card-title">{{customer.firstName + ' ' + customer.lastName}}</p>
+           <p class="card-text">{{customer.city}}</p> 
+           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+         </div>
+       </div>
+     </div>
+   </div>-->
+
+
+
+
+
+
+
+

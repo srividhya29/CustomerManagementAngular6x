@@ -1,0 +1,17 @@
+<div class="orders view">
+  <div class="container">
+    <header>
+      <h3>All Customer Orders</h3>
+    </header>
+    <div>
+      <div class="row">
+        <div class="col-xs-12" *ngFor="let cust of customers">
+          <div class="indent">
+            <h4><a href="/customerorders/{{cust.id}}">{{cust.firstName + ' ' + cust.lastName }}</a></h4>
+          </div>
+          <ordersTable [customer]="cust"></ordersTable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
